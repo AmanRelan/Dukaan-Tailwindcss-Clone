@@ -1,6 +1,16 @@
-const RevenueCard = ({ title, orderCount, amount }) => {
+const RevenueCard = ({
+  title,
+  orderCount,
+  amount,
+  className,
+  orderCountTextColor,
+}) => {
+  const orderTextColor = orderCountTextColor || "text-[#146EB4]";
+
   return (
-    <div className="bg-white p-5  rounded shadow-lg flex flex-col">
+    <div
+      className={`${className} p-5 rounded-lg shadow-lg flex flex-col justify-between`}
+    >
       <div className="flex gap-3 items-center mb-2">
         <div>{title}</div>
         <svg
@@ -18,7 +28,9 @@ const RevenueCard = ({ title, orderCount, amount }) => {
       <div className="flex justify-between items-center">
         <div className="text-3xl font-medium">{amount}</div>
         {orderCount ? (
-          <div className="flex items-center font-medium text-base underline text-[#146EB4]">
+          <div
+            className={`flex items-center font-medium text-base underline ${orderTextColor}`}
+          >
             {orderCount} Orders
             <svg
               stroke="currentColor"
